@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link asp-href-include="lib/**/*.min.css" rel="stylesheet" />
+</head>
+<body>
+    <nav>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Cursist">Cursisten</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Cursus">Cursussen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Inschrijving">Inschrijvingen</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <script asp-src-include="lib/**/*.min.js"></script>
+    @RenderSection("scripts",false)
+</body>
+</html>

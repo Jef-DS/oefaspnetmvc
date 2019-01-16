@@ -1,0 +1,24 @@
+﻿@using oef4.ViewModels
+@model PersoonViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personen</title>
+</head>
+<body>
+    <form asp-controller="Home" asp-action="Index">
+        <div asp-validation-summary="All"></div>
+        <label asp-for="NieuwePersoon.Naam"></label>
+        <input asp-for="NieuwePersoon.Naam" />
+        <label asp-for="NieuwePersoon.GeboorteDatum"></label>
+        <input asp-for="NieuwePersoon.GeboorteDatum" />
+        <input type="submit" value="Toevoegen" />
+    </form>
+    @if (Model != null && Model.VorigePersoon != null)
+    {
+        <p>Naam: @Model.VorigePersoon.Naam</p>
+        <p>Leeftijd:@Model.VorigePersoon.Leeftijd </p>
+    }
+</body>
+</html>

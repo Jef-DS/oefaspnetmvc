@@ -1,0 +1,14 @@
+﻿@model Cursist
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Voornaam"></label>
+        <input asp-for="Voornaam" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Achternaam"></label>
+        <input asp-for="Achternaam" />
+    </div>
+    <button type="submit" class="btn btn-primary">Aanpassen</button>
+    <a asp-action="Index" class="btn btn-secondary">Annuleren</a>
+</form>

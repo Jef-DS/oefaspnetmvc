@@ -1,0 +1,40 @@
+﻿@using oef5.ViewModels
+@model BestellingViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head><title>Bestellen</title></head>
+<body>
+    <form asp-controller="Home" asp-action="Index">
+        <label asp-for="BesteldProduct"></label>
+        <select asp-for="BesteldProduct" asp-items='new SelectList(Model.Producten,"Naam", "Text")'>
+    
+        </select>
+        <label asp-for="Aantal"></label>
+        <input asp-for="Aantal" />
+        <input type="submit" value="Bestellen" />
+    </form>
+    @if(Model.Bestellingen.Count > 0)
+    {
+        <table>
+            <thead>
+                <tr><td>Naam</td><td>Aantal</td><td>E.P.</td><td>subtotaal</td></tr>
+            </thead>
+            <tbody>
+                @foreach(var product in Model.Bestellingen)
+                {
+                    <tr>
+                        <td>@product.Naam</td>
+                        <td>@product.Aantal</td>
+                        <td>@product.EenheidsPrijs</td>
+                        <td>@product.Subtotaal</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr><td colspan="2"></td><td>Totaal: </td><td>@Model.TotaalPrijs</td></tr>
+            </tfoot>
+        </table>
+    }
+</body>
+</html>

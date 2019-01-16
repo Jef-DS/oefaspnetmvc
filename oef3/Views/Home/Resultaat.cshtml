@@ -1,0 +1,17 @@
+﻿@model Reis
+<!DOCTYPE html>
+<html>
+<head><title>Op reis</title></head>
+<body>
+    <p>
+        U gaat voor @Model.AantalDagen 
+        @if(Model.AantalDagen == 1)
+        {
+            <text>dag</text>
+        }else{ 
+            <text>dagen</text>
+        }
+        op reis naar @Model.Bestemming
+    </p>
+</body>
+</html>

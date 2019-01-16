@@ -1,0 +1,22 @@
+﻿@model PersoonViewModel
+<div asp-validation-summary="All"></div>
+<form asp-action="Create">
+    <label asp-for="Persoon.Voornaam"></label>
+    <input asp-for="Persoon.Voornaam" />
+    <label asp-for="Persoon.Achternaam"></label>
+    <input asp-for="Persoon.Achternaam" />
+    <input type="submit" value="Verzenden" />
+</form>
+<a asp-action="Index">Naar home</a>
+@if(Model != null && Model.Personen != null && Model.Personen.Count > 0)
+{
+    <table>
+        <thead><tr><td>Voornaam</td><td>Achternaam</td></tr></thead>
+        <tbody>
+            @foreach(var p in Model.Personen)
+            {
+                <tr><td>@p.Voornaam</td><td>@p.Achternaam</td></tr>
+            }
+        </tbody>
+    </table>
+}

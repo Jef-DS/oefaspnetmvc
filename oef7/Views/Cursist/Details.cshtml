@@ -1,0 +1,22 @@
+﻿@model Cursist
+<div class="row">
+    <div class="col-3">
+        Inschrijvingen van @Model.Naam:
+    </div>
+    <ul class="row-5">
+        @foreach(var inschrijving in Model.Inschrijvingen)
+        {
+            <li>
+                @inschrijving.Cursus.Naam
+                @if(inschrijving.punten != null)
+                {
+                    <text>: @inschrijving.punten</text>
+                }
+                else
+                {
+                    <text>: nog geen punten</text>
+                }
+            </li>
+        }
+    </ul>
+</div>

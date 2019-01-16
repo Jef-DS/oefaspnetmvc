@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Cursist>
+@if (Model.Count() == 0)
+{
+    <h2>Er zijn nog geen cursisten</h2>
+}
+else
+{
+    <table class="table table-sm table-bordered table-striped">
+        <thead>
+            <tr><th>Id</th><th>Voornaam</th><th>Achternaam</th></tr>
+        </thead>
+        <tbody>
+            @foreach (var cursist in Model)
+            {
+                <tr>
+                    <td>@cursist.Id</td>
+                    <td>@cursist.Voornaam</td>
+                    <td>@cursist.Achternaam</td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@cursist.Id" class="btn btn-danger">Verwijdern</a>
+                        <a asp-action="Edit" asp-route-id="@cursist.Id" class="btn btn-warning">Aanpassen</a>
+                        <a asp-action="Details" asp-route-id="@cursist.Id" class="btn">Details</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<a asp-action="Create" class="btn btn-primary">Voeg toe</a>

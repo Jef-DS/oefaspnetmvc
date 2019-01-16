@@ -1,0 +1,17 @@
+﻿@model Reis
+<!DOCTYPE html>
+<html>
+<head><title>Op reis</title></head>
+<body>
+    <form asp-action="Index" asp-controller="Home">
+        <label asp-for="Bestemming"></label>
+            <select asp-for="Bestemming" asp-items="Html.GetEnumSelectList<Bestemmingen>()">
+            </select>
+        <label asp-for="StartDatum"></label>
+            <input asp-for="StartDatum" />
+        <label asp-for="EindDatum"></label>
+            <input asp-for="EindDatum" />
+        <input type="submit" value="Vertrekken"/>
+    </form>
+</body>
+</html>
